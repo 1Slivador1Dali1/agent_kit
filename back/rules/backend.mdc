@@ -1,0 +1,14 @@
+---
+description: Backend engineering workflow for any server-side task
+alwaysApply: true
+---
+
+For any backend work in this project:
+1. First inspect existing conventions (structure, naming, error format, logger, test framework) and follow them. Do not introduce a new library or pattern when one already exists.
+2. Endpoints: define the contract and use the api-design skill. Validate all input at the boundary.
+3. Database changes: use the data-layer skill; migrations are additive and never edit applied ones.
+4. Every change that handles users, auth, input or external URLs gets a backend-security pass before it is considered done.
+5. Errors go through the central handler and structured logger (errors-observability); no swallowed exceptions, no print debugging.
+6. External calls and async work follow reliability-performance: timeouts, bounded retries, idempotency.
+7. Write or update tests with backend-testing, run them, and report the result. Bug fixes start with a failing test.
+8. Never put secrets in code or logs. State assumptions and any breaking change explicitly at the end.

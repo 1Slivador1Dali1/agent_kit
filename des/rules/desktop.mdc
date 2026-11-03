@@ -1,0 +1,15 @@
+---
+description: Desktop application engineering workflow for any desktop task
+alwaysApply: true
+---
+
+For any desktop work in this project:
+1. Inspect existing conventions first (process model, architecture, theme/tokens, IPC, DI, test setup, installer config) and follow them. Do not introduce a second pattern or new dependency when one exists.
+2. Windows and screens: use desktop-ui-platform; keyboard shortcuts, menus, DPI scaling, dark mode, remembered window state and accessibility are part of the feature.
+3. Structure: use desktop-architecture; the UI thread never blocks on I/O; the renderer/webview is untrusted and talks to the core through typed, validated IPC only.
+4. Anything that stores files or settings uses desktop-data-persistence: OS-standard directories, atomic writes, versioned formats and tested migrations.
+5. Keep performance in check with desktop-performance: virtualized lists, cancellable background work, near-zero idle CPU, bounded caches.
+6. Anything touching IPC, files, shell, remote content, URL schemes, credentials or updates gets a desktop-security pass before it is considered done.
+7. Write or update tests and run them (desktop-packaging-release); bug fixes start with a failing test.
+8. Before finishing a screen, run the nielsen-review skill if it is installed.
+9. State assumptions, platform differences (Windows/macOS/Linux) and any breaking change to stored data at the end.

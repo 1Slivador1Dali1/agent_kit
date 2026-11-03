@@ -1,0 +1,11 @@
+---
+description: Frontend design workflow for any UI task
+alwaysApply: true
+---
+
+For any UI work in this project:
+1. Before coding a new screen or redesign, use the design-direction skill and state a short design brief.
+2. Use design tokens only (see design-tokens skill and DESIGN.md); no hardcoded colors, font sizes or magic spacing numbers.
+3. Implement all states for data-driven components (ui-states-feedback skill).
+4. Before finishing, run nielsen-review and a11y-responsive-check on the changed screens and fix findings.
+5. Add motion with motion-polish only where it explains change or confirms an action; always respect prefers-reduced-motion.

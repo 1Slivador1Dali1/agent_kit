@@ -1,0 +1,15 @@
+---
+description: Mobile app engineering workflow for any client-side mobile task
+alwaysApply: true
+---
+
+For any mobile work in this project:
+1. Inspect existing conventions first (architecture, navigation, theme/design tokens, DI, test setup) and follow them. Do not introduce a second pattern or new dependency when one exists.
+2. Screens: use mobile-ui-platform; follow platform conventions, safe areas, touch target sizes, dark mode, dynamic type and accessibility labels.
+3. Structure: use mobile-architecture; no networking or storage in UI code; screen state as a single immutable type.
+4. Every data screen implements loading, empty, error, retry and offline behavior (mobile-states-offline).
+5. Performance: no main-thread blocking, virtualized lists, sized images, cancel work on dispose (mobile-performance).
+6. Anything touching auth, tokens, payments, personal data or deep links gets a mobile-security-privacy pass; secrets never in the bundle or logs.
+7. Write or update tests and run them (mobile-testing-release); bug fixes start with a failing test.
+8. Before finishing a screen, run the nielsen-review skill if it is installed.
+9. State assumptions, platform differences (iOS vs Android) and any breaking change at the end.
